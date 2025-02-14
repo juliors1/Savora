@@ -1,0 +1,5 @@
+# Savora
+
+## Description: 
+Are you always questioning yourself, “What should I cook today?” Well if you are, you’ve come to the right place! Our team has designed this app called Savora which allows you to search for a specific recipe based on keywords where you can add it to a cookbook. You can also click the random button that generates random recipes. Our app provides you with a recipe that contains details of the ingredients, nutritions, and directions. Want to share your own recipe? We have a recipe board where you can add your homemade recipes or create your recipe to share with the public. You can also leave reviews on the recipes you have tried. In conclusion, we all love a creative meal, and with Savora we want everyone to harness the power of creating tasty meals. Savora is our rendition of a fun and interactive way to discover delicious recipes we can all make at the convenience of our home. This is our fun stab at a common problem we all would like to solve, helping everyone make tasty meals right at home and awaken your inner chef!
+
