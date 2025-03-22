@@ -7,6 +7,3 @@ const App = () => {
 }
 
 export default App
-
-
-push
