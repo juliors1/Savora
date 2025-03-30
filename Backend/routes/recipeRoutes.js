@@ -1,12 +1,12 @@
 const express = require('express');
-const { 
-  getRandomRecipe, 
-  saveRecipe, 
-  rateRecipe, 
-  searchRecipes, 
-  getExploreRecipes, 
-  shareRecipe 
-} = require('../controllers/recipeController');
+const {
+  getRandomRecipe,
+  saveRecipe,
+  rateRecipe,
+  searchRecipes,
+  getExploreRecipes,
+  shareRecipe
+} = require('../controllers/recipe');
 const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();

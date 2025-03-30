@@ -1,4 +1,4 @@
-// controllers/recipeController.js
+// controllers/recipe.js
 const Recipe = require('../models/Recipe');
 const User = require('../models/User');
 const axios = require('axios');

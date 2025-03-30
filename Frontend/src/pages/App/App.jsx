@@ -15,7 +15,6 @@ import DeleteRecipe from '../DeleteRecipe/DeleteRecipe'
 
 const App = () => {
   return (
-
     <Routes>
       <Route path='/' element={<Search/>} />
       <Route path='/recipe/create' element={<CreateRecipe/>}/>
