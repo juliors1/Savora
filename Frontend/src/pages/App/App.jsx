@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
+//
 // import Login from '../Login/Login'
-// import Register from '..Signup/Signup'
+import Signup from "../Signup/Signup";
 // import Profile from '../Profile/Profile'
 import "./App.css";
 import Search from "../Search/Search";
@@ -18,6 +18,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Search />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/recipe/create" element={<CreateRecipe />} />
         {/* <Route path="/recipe/view/:id" element={<ViewRecipe />} />
         <Route path="/recipe/edit/:id" element={<EditRecipe />} />
