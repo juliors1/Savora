@@ -1,13 +1,13 @@
-const User = require('../models/User');
+const User = require("../models/user");
 
 // Get user profile
 exports.getUserProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password'); // Exclude password
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    const user = await User.findById(req.user.id).select("-password"); // Exclude password
+    if (!user) return res.status(404).json({ message: "User not found" });
     res.json(user);
   } catch (error) {
-    res.status(500).json({ message: 'Server Error' });
+    res.status(500).json({ message: "Server Error" });
   }
 };
 
@@ -17,14 +17,14 @@ exports.updateUserProfile = async (req, res) => {
     const { username, email } = req.body;
     const user = await User.findById(req.user.id);
 
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) return res.status(404).json({ message: "User not found" });
 
     if (username) user.username = username;
     if (email) user.email = email;
 
     await user.save();
-    res.json({ message: 'Profile updated successfully', user });
+    res.json({ message: "Profile updated successfully", user });
   } catch (error) {
-    res.status(500).json({ message: 'Server Error' });
+    res.status(500).json({ message: "Server Error" });
   }
 };

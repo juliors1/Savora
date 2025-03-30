@@ -8,7 +8,7 @@ import "./App.css";
 import Search from "../Search/Search";
 // import Board from '../Board/Board'
 // import Users from '../Users/Users'
-import CreateRecipe from "../CreateRecipe/CreateRecipe";
+// import CreateRecipe from "../CreateRecipe/CreateRecipe";
 // import ViewRecipe from "../ViewRecipe/ViewRecipe";
 // import EditRecipe from "../EditRecipe/EditRecipe";
 // import DeleteRecipe from "../DeleteRecipe/DeleteRecipe";
@@ -18,8 +18,8 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/recipe/create" element={<CreateRecipe />} />
-        {/* <Route path="/recipe/view/:id" element={<ViewRecipe />} />
+        {/* <Route path="/recipe/create" element={<CreateRecipe />} />
+        <Route path="/recipe/view/:id" element={<ViewRecipe />} />
         <Route path="/recipe/edit/:id" element={<EditRecipe />} />
         <Route path="/recipe/delete/:id" element={<DeleteRecipe />} /> */}
       </Routes>
