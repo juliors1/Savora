@@ -1,5 +1,5 @@
 import React from "react";
-import "./Board.css"; // Assuming you have a CSS file for styling
+import "./Board.css";
 import NavBar from "../../components/NavBar/NavBar";
 
 const Board = () => {
