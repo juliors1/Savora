@@ -73,7 +73,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="flex px-4 py-3">
-                <button className="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#F9CAB3] text-[#000] text-base font-bold leading-normal tracking-[0.015em]">
+                <button className="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#F2A37D] text-[#000] text-base font-bold leading-normal tracking-[0.015em]">
                   <span className="truncate">Login</span>
                 </button>
               </div>

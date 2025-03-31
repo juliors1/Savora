@@ -33,11 +33,11 @@ const CreateRecipe = () => {
             </div>
 
             <h2 className="text-[#1b130d] text-lg font-bold leading-tight tracking-[-0.015em]">
-              Cookbook
+              Create Your Own 🧑‍🍳
             </h2>
 
             <div className="flex gap-2">
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#ee7f2b] text-[#1b130d] text-sm font-bold leading-normal tracking-[0.015em]">
+              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#F2A37D] text-[#1b130d] text-sm font-bold leading-normal tracking-[0.015em]">
                 <span className="truncate">Save</span>
               </button>
               <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f3ece7] text-[#1b130d] text-sm font-bold leading-normal tracking-[0.015em]">
