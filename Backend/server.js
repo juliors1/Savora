@@ -14,9 +14,9 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/recipes', require('./routes/recipeRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/recipes', require('./routes/recipes'));
+app.use('/api/users', require('./routes/users'));
 
 // Error handling middleware
 app.use(errorHandler);

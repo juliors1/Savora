@@ -6,7 +6,7 @@ const {
   searchRecipes,
   getExploreRecipes,
   shareRecipe,
-} = require("../controllers/recipe");
+} = require("../controllers/recipes");
 const authMiddleware = require("../middleware/auth");
 
 const router = express.Router();

@@ -1,13 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "../Login/Login";
-import Signup from "../Signup/Signup";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 // import Profile from '../Profile/Profile'
-import "./App.css";
-import Search from "../Search/Search";
-import Board from "../Board/Board";
+import Search from "./pages/Search/Search";
+import Board from "./pages/Board/Board";
 // import Users from '../Users/Users'
-import CreateRecipe from "../CreateRecipe/CreateRecipe";
+import CreateRecipe from "./pages/CreateRecipe/CreateRecipe";
 // import ViewRecipe from "../ViewRecipe/ViewRecipe";
 // import EditRecipe from "../EditRecipe/EditRecipe";
 // import DeleteRecipe from "../DeleteRecipe/DeleteRecipe";
