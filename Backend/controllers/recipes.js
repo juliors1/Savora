@@ -1,8 +1,9 @@
 // controllers/recipe.js
-const Recipe = require("../models/recipe");
-const User = require("../models/user");
+const Recipe = require("../models/Recipe");
+const User = require("../models/User");
 const axios = require("axios");
 require("dotenv").config();
+const mongoose = require("mongoose");
 
 // Get a random recipe
 exports.getRandomRecipe = async (req, res) => {
