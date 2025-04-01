@@ -125,7 +125,8 @@ exports.submitRecipe = async (req, res) => {
       title,
       ingredients,
       instructions,
-      shared: shared || false
+      shared: shared || false,
+      user: req.user.id // Assign the user ID
     });
 
     await newRecipe.save();
@@ -154,5 +155,81 @@ exports.shareRecipe = async (req, res) => {
     res.json({ message: 'Recipe shared successfully', recipe });
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+exports.getUserRecipes = async (req, res) => {
+  try {
+    const recipes = await Recipe.find({ user: req.user.id });
+    res.json(recipes);
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+exports.updateRecipe = async (req, res) => {
+  try {
+    const { title, ingredients, instructions, shared } = req.body;
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid recipe ID format" });
+    }
+
+    const recipe = await Recipe.findById(id);
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    // Check if the recipe has a user before calling toString()
+    if (!recipe.user || !req.user) {
+      return res.status(403).json({ message: "Unauthorized - User field missing" });
+    }
+
+    // Ensure only the owner can update the recipe
+    if (recipe.user.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
+    // Update fields if provided
+    if (title) recipe.title = title;
+    if (ingredients) recipe.ingredients = ingredients;
+    if (instructions) recipe.instructions = instructions;
+    if (shared !== undefined) recipe.shared = shared;
+
+    await recipe.save();
+    res.json({ message: "Recipe updated successfully", recipe });
+  } catch (error) {
+    console.error("Error updating recipe:", error);
+    res.status(500).json({ message: "Server Error", error: error.message });
+  }
+};
+
+exports.deleteRecipe = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log("Received Recipe ID:", id);
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid recipe ID format" });
+    }
+
+    const recipe = await Recipe.findById(id);
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    // Ensure the user deleting the recipe is the owner
+    if (recipe.user.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
+    // Use deleteOne instead of remove
+    await recipe.deleteOne();
+
+    res.json({ message: "Recipe deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting recipe:", error);
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 };

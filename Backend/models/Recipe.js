@@ -6,8 +6,10 @@ const RecipeSchema = new mongoose.Schema({
     instructions: { type: String, required: true },
     ratings: [{ userId: mongoose.Schema.Types.ObjectId, rating: Number }],
     averageRating: { type: Number, default: 0 },
-    shared: { type: Boolean, default: false } // New field for Explore page
+    shared: { type: Boolean, default: false }, // New field for Explore page
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true } // Add this field
 });
+
 
 // Method to calculate average rating
 RecipeSchema.methods.calculateAverageRating = function() {
