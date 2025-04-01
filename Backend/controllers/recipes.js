@@ -20,25 +20,39 @@ exports.getRandomRecipe = async (req, res) => {
 // Save a recipe to user profile
 exports.saveRecipe = async (req, res) => {
   try {
+    console.log("Request received to save recipe.");
+
     const { recipeId } = req.body;
+    console.log("Recipe ID:", recipeId);
+
+    console.log("User ID from request:", req.user?.id);
+
     const user = await User.findById(req.user.id);
+    console.log("User found:", user);
 
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) return res.status(404).json({ message: 'User not found' });
 
-    if (!user.savedRecipes.includes(recipeId)) {
-      user.savedRecipes.push(recipeId);
-      await user.save();
+    // Validate if recipeId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(recipeId)) {
+      return res.status(400).json({ message: 'Invalid recipeId format' });
     }
 
-    res.json({
-      message: "Recipe saved successfully",
-      savedRecipes: user.savedRecipes,
-    });
+    const recipeObjectId = new mongoose.Types.ObjectId(recipeId); // Convert only if valid
+
+    if (!user.savedRecipes.includes(recipeObjectId)) {
+      user.savedRecipes.push(recipeObjectId);
+      await user.save();
+      console.log("Recipe saved successfully.");
+    } else {
+      console.log("Recipe already saved.");
+    }
+
+    res.json({ message: 'Recipe saved successfully', savedRecipes: user.savedRecipes });
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    console.error("Error in saveRecipe:", error);
+    res.status(500).json({ message: 'Server Error', error: error.message });
   }
 };
-
 // Add or Update a User's Rating for a Recipe
 exports.rateRecipe = async (req, res) => {
   try {
