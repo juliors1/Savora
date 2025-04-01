@@ -1,6 +1,5 @@
 const Post = require("../models/Post");
 const User = require("../models/User");
-const axios = require("axios");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
@@ -79,7 +78,7 @@ exports.ratePost = async (req, res) => {
 };
 
 // Get all shared posts in Explore Page (Recipe Board)
-exports.getAllSharedPost = async (req, res) => {
+exports.getExplorePost = async (req, res) => {
   try {
     const posts = await Post.find({ shared: true });
     res.json(posts);
@@ -100,7 +99,12 @@ exports.submitPost = async (req, res) => {
       title,
       ingredients,
       instructions,
-      isPublic: isPublic || false,
+      shared,
+      image,
+      user: req.user.id, // Assign the user ID
+      createdAt: new Date(),
+      averageRating: 0,
+      ratings: [],
     });
 
     await newPost.save();
@@ -110,8 +114,8 @@ exports.submitPost = async (req, res) => {
   }
 };
 
-// Set Public
-exports.setPublic = async (req, res) => {
+// Share a Post
+exports.sharePost = async (req, res) => {
   try {
     const { postId } = req.body;
     const user = await User.findById(req.user.id);
@@ -122,7 +126,7 @@ exports.setPublic = async (req, res) => {
 
     if (!post) return res.status(404).json({ message: "Post not found" });
 
-    post.isPublic = true;
+    post.shared = true;
     await post.save();
 
     res.json({ message: "Post shared successfully", post });
@@ -170,7 +174,7 @@ exports.updatePost = async (req, res) => {
     if (title) post.title = title;
     if (ingredients) post.ingredients = ingredients;
     if (instructions) post.instructions = instructions;
-    if (isPublic !== undefined) post.isPublic = isPublic;
+    if (shared !== undefined) post.shared = shared;
 
     await post.save();
     res.json({ message: "Post updated successfully", post });
@@ -199,7 +203,7 @@ exports.deletePost = async (req, res) => {
       return res.status(403).json({ message: "Unauthorized" });
     }
 
-    // Use deleteOne instead of remove
+
     await post.deleteOne();
 
     res.json({ message: "Post deleted successfully" });

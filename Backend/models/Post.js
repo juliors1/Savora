@@ -14,7 +14,7 @@ const PostSchema = new Schema(
     ratings: [{ userId: mongoose.Schema.Types.ObjectId, rating: Number }],
     averageRating: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now },
-    isPublic: { type: Boolean, default: true }, // To show in Explore Page (Recipe Board)
+    shared: { type: Boolean, default: false }, 
     image: {
       type: String,
       validate: {
