@@ -90,7 +90,7 @@ exports.getExplorePost = async (req, res) => {
 // Submit a Post
 exports.submitPost = async (req, res) => {
   try {
-    const { title, ingredients, instructions, shared } = req.body;
+    const { title, ingredients, instructions, shared, image, user} = req.body;
     if (!title || !ingredients || !instructions) {
       return res.status(400).json({ message: "Missing required fields" });
     }
@@ -101,13 +101,16 @@ exports.submitPost = async (req, res) => {
       instructions,
       shared,
       image,
-      user: req.user.id, // Assign the user ID
+      user: user, // Assign the user ID
       createdAt: new Date(),
       averageRating: 0,
       ratings: [],
     });
 
-    await newPost.save();
+    await newPost.save().catch((error) => {
+      console.log(error);
+    });
+
     res.json({ message: "Post submitted successfully!", post: newPost });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
@@ -202,7 +205,6 @@ exports.deletePost = async (req, res) => {
     if (post.user.toString() !== req.user.id) {
       return res.status(403).json({ message: "Unauthorized" });
     }
-
 
     await post.deleteOne();
 

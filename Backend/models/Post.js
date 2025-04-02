@@ -14,7 +14,7 @@ const PostSchema = new Schema(
     ratings: [{ userId: mongoose.Schema.Types.ObjectId, rating: Number }],
     averageRating: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now },
-    shared: { type: Boolean, default: false }, 
+    shared: { type: Boolean, default: false },
     image: {
       type: String,
       validate: {
@@ -45,6 +45,6 @@ PostSchema.methods.calculateAverageRating = function () {
   }
 };
 
-const Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model("Post", PostSchema);
 
 module.exports = Post;

@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./config/db');
-const errorHandler = require('./middleware/error');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
+require("dotenv").config();
 
 const app = express();
 
@@ -14,9 +14,10 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/recipes', require('./routes/recipes'));
-app.use('/api/users', require('./routes/users'));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/recipes", require("./routes/recipes"));
+app.use("/api/users", require("./routes/users"));
+app.use("/api/posts", require("./routes/posts"));
 
 // Error handling middleware
 app.use(errorHandler);

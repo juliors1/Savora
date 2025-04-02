@@ -12,15 +12,19 @@ exports.register = async (req, res) => {
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ message: "User already exists" });
 
+    const token = createJWT(user);
+
     // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create and save new user
     user = new User({ username, email, password: hashedPassword });
     await user.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res
+      .status(201)
+      .json({ message: "User registered successfully", token: token });
   } catch (error) {
     res.status(500).json({ error: "Server error" });
   }
@@ -62,3 +66,13 @@ exports.getUserProfile = async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 };
+
+// ----- Helper Function -----
+
+function createJWT(user) {
+  return jwt.sign(
+    { user }, // data payload
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+  );
+}
