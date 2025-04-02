@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/save", authMiddleware, savePost);
 router.post("/rate", authMiddleware, ratePost);
 router.get("/explore", getExplorePost);
-router.post("/", authMiddleware, submitPost);
+router.post("/submit", authMiddleware, submitPost);
 router.post("/share", authMiddleware, sharePost);
 router.get("/my-posts", authMiddleware, getUserPost); // Get all user-created Post
 router.put("/:id", authMiddleware, updatePost); // Update a Post
