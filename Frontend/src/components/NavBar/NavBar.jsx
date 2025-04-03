@@ -35,44 +35,44 @@ const NavBar = () => {
                 <div className="flex w-full flex-1 items-stretch rounded-xl h-full">
                   <div className="flex gap-2">
                     <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#f3ece7] text-[#1b130d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
-                      <div
+                      <nav
                         className="text-[#1b130d]"
                         data-icon="BookOpen"
                         data-size="20px"
                         data-weight="regular"
                       >
-                        Search
-                      </div>
+                        <Link to="/">Search</Link>
+                      </nav>
                     </button>
                     <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#f3ece7] text-[#1b130d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
-                      <div
+                      <nav
                         className="text-[#1b130d]"
                         data-icon="ShoppingCart"
                         data-size="20px"
                         data-weight="regular"
                       >
-                        Recipe Board
-                      </div>
+                        <Link to="/recipe/board">Recipe Board</Link>
+                      </nav>
                     </button>
                     <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#f3ece7] text-[#1b130d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
-                      <div
+                      <nav
                         className="text-[#1b130d]"
                         data-icon="Bell"
                         data-size="20px"
                         data-weight="regular"
                       >
-                        Users
-                      </div>
+                        <Link to="/users">Users </Link>
+                      </nav>
                     </button>
                     <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#f3ece7] text-[#1b130d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
-                      <div
+                      <nav
                         className="text-[#1b130d]"
                         data-icon="Bell"
                         data-size="20px"
                         data-weight="regular"
                       >
-                        Profile
-                      </div>
+                        <Link to="/profile">Profile</Link>
+                      </nav>
                     </button>
                   </div>
                   <div
