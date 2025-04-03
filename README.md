@@ -6,11 +6,11 @@ The Savora Web Application is designed to help people learn how to cook, discove
 
 ## Features
 
-- **User Accounts & Profiles**: Users can create accounts and maintain personal profile pages where they can save their favorite recipes or discover new ones shared by others.  
-- **Recipe Pages**: Each recipe comes with detailed instructions, a list of ingredients, and nutritional information. This will help users make informed decisions about their meals.  
-- **Explore Page**: Users can search for specific recipes or explore new ones through a search bar. Additionally, a random recipe button will generate random meal ideas.  
-- **Rating System**: Recipes will feature a 5-star rating system, allowing users to rate meals based on their personal preferences and experiences.  
-- **Spoonacular API Integration**: Nutritional data and meal instructions are fetched from the Spoonacular API to ensure accurate and easy-to-read information.  
+- **User Accounts & Profiles**: Users can create accounts and maintain personal profile pages where they can save their favorite recipes or discover new ones shared by others.
+- **Recipe Pages**: Each recipe comes with detailed instructions, a list of ingredients, and nutritional information. This will help users make informed decisions about their meals.
+- **Explore Page**: Users can search for specific recipes or explore new ones through a search bar. Additionally, a random recipe button will generate random meal ideas.
+- **Rating System**: Recipes will feature a 5-star rating system, allowing users to rate meals based on their personal preferences and experiences.
+- **Spoonacular API Integration**: Nutritional data and meal instructions are fetched from the Spoonacular API to ensure accurate and easy-to-read information.
 
 ## Setup
 
@@ -18,9 +18,9 @@ Follow the steps below to run the project locally:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (Version 14.x or above)  
-- [MongoDB](https://www.mongodb.com/) (Local or Cloud Atlas)  
-- [npm](https://www.npmjs.com/) (Node Package Manager)  
+- [Node.js](https://nodejs.org/) (Version 14.x or above)
+- [MongoDB](https://www.mongodb.com/) (Local or Cloud Atlas)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
 ### Installation Steps
 
@@ -55,13 +55,15 @@ In the frontend folder, run:
 
 
 npm run dev
-The app should now be accessible at http://localhost:3000.
+The app should now be accessible at http://localhost:5173.
 
 Team Members
+
+Julio Rojas: Frontend Lead, Lead Designer & Backend Developer (Worked with React, Node.js/Express.js)
+
+Ali Baduqail: Frontend Developer
+
 Angel Antayhua-Reynoso: Backend Developer (Worked with Express and Node.js)
 
 Michael Du: Database Manager (Managed MongoDB database)
 
-Julio Rojas: Frontend Developer (Worked with React)
-
-Ali Baduqail: Frontend Developer
