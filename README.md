@@ -1,4 +1,4 @@
-# Savora Web Application
+# Savora
 
 ## Project Overview
 
@@ -59,7 +59,7 @@ The app should now be accessible at http://localhost:5173.
 
 Team Members
 
-Julio Rojas: Frontend Lead, Lead Designer & Backend Developer (Worked with React, Node.js/Express.js)
+Julio Rojas: Frontend Lead, Lead Designer & Backend Developer (Worked with React, Node.js/Express.js, Mongoose)
 
 Ali Baduqail: Frontend Developer
 
