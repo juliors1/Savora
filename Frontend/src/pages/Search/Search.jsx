@@ -9,22 +9,22 @@ import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 
 const Search = () => {
-//   const [recipes, setRecipes] = useState([]);
-//   const [loading, setLoading] = useState(false);
+  //   const [recipes, setRecipes] = useState([]);
+  //   const [loading, setLoading] = useState(false);
 
-//   useEffect(() => {
-//     setLoading(true);
-//     axios
-//       .get("http://localhost:5001/recipes")
-//       .then((response) => {
-//         setRecipes(response.data.data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching recipes:", error);
-//         setLoading(false);
-//       });
-//   }, []);
+  //   useEffect(() => {
+  //     setLoading(true);
+  //     axios
+  //       .get("http://localhost:5001/recipes")
+  //       .then((response) => {
+  //         setRecipes(response.data.data);
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching recipes:", error);
+  //         setLoading(false);
+  //       });
+  //   }, []);
   return (
     <>
       <NavBar />
@@ -59,7 +59,7 @@ const Search = () => {
               </label>
             </div>
             <h2 className="text-[#1b130d] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-              Popular Recipes
+              Recipes
             </h2>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
               <div className="flex flex-col gap-3 pb-3">
